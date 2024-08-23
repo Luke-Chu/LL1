@@ -1,0 +1,3 @@
+S→TL;
+T→int|float
+L→L,id|id

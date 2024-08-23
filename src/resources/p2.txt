@@ -1,0 +1,3 @@
+S→abB|abcA|ε
+A→abS|abcAA
+B→abcS|abBB

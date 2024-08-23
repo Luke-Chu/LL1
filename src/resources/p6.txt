@@ -1,0 +1,4 @@
+E→num
+T→id
+F→int
+G→=

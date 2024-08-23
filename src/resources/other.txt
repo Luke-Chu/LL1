@@ -1,0 +1,22 @@
+if (grammar.any { it.contains("true") } && grammar.any { it.contains("false") }) {
+            lexicalAnalysis(w)
+        } else if (grammar.any { it.contains(Regex("[+\\-*/]")) }) {
+            w.replace(Regex("\\d+"), "id").replace(" ", "")
+        } else if (grammar.any { it.contains("int") } && grammar.any { it.contains("float") }){
+            if (w.contains("int")){
+                w.replace("int","$").
+                replace(Regex("[A-Za-z_]([A-Za-z_]|\\d)*"),"id").
+                replace("$","int").replace(" ","")
+            }else if (w.contains("float")){
+                w.replace("float","$").
+                replace(Regex("[A-Za-z_]([A-Za-z_]|\\d)*"),"id").
+                replace("$","float").replace(" ","")
+            } else {
+                w.replace(Regex("[A-Za-z_]([A-Za-z_]|\\d)*"),"id").
+                replace(" ","")
+            }
+        }else {
+            w.replace(" ", "")
+        }
+
+
