@@ -98,9 +98,9 @@
 
       - （*直接收取*）若$X∈Vn$，且有$X→aα$，则$a∈FIRST(X)$，若有$X→ε$，则$ε∈FIRST(X)$
 
-      - （*反复传送*）若$X→Y1Y2···Yk$，且$Y1∈Vn$，则令$FIRST(Yi)-{ε} ⊆ FIRST(X)$
+      - （*反复传送*）若$X→Y1Y2···Yk$，且$Y1∈Vn$，则令$FIRST(Yi)-\{ε\} ⊆ FIRST(X)$
 
-      - （*透明特性*）若$Yi→*ε$，$i=i+1$，重复$FIRST(Yi)-{ε} ⊆ FIRST(X)$
+      - （*透明特性*）若$Yi→*ε$，$i=i+1$，重复$FIRST(Yi)-\{ε\} ⊆ FIRST(X)$
 
       - 特别当$ε∈FIRST(Yk)$，令$ε∈FIRST(X)$
 
@@ -110,7 +110,7 @@
 
       - （*直接收取*）$A →···Ba···$，则 $a∈FOLLOW(B)$
 
-      - （*直接收取*）$A→···BP···$，令则 $FIRST(P)-{ε} ⊆ FOLLOW(B)$
+      - （*直接收取*）$A→···BP···$，令则 $FIRST(P)-\{ε\} ⊆ FOLLOW(B)$
 
       - （*反复传送*）$A→αB$，则 $FOLLOW(A)⊆FOLLOW(B)$
 
