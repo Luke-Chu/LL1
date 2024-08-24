@@ -50,13 +50,13 @@
 
 - 实数：`num` → `digit+`.`digit+` | ε
 
-- 标识符：`letter_`(`letter_`|`digit`)^*^
+- 标识符：`letter_`(`letter_`|`digit`)*
 
 在程序中可以通过正则表达式去匹配对应的串，匹配成功后就将其替换为对应的词法记号流。
 
 词法分析的`DFA`如下图所示：
 
-![image-01](D:\Luke\Documents\IdeaProjects\LL1\imgs\image1.jpg)
+![image-01](imgs/image1.jpg)
 
 > 图3.1 词法分析的`DFA`
 
@@ -64,7 +64,7 @@
 
 语法分析与词法分析的流程图如下：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image2.jpg" alt="image-02" style="zoom:60%;" />
+<img src="imgs/image2.jpg" alt="image-02" style="zoom:60%;" />
 
 > 图3.2 程序流程图
 
@@ -132,7 +132,7 @@
       输出： 如果$w$属于$L(G)$，则输出$w$的最左推导，否则报告错误。
       方法： 初始时分析器的格局是：$\$S$在栈里，其中$S$是开始符号并且在栈顶；$w\$$在输入缓冲区中。图3.3是用预测分析表$M$对输入串进行分析的程序。 
 
-      ![image-03](D:\Luke\Documents\IdeaProjects\LL1\imgs\image3.jpg)
+      ![image-03](imgs/image3.jpg)
 
       > 图3.3 预测分析程序截图
 
@@ -615,37 +615,37 @@ private fun anaProgram(inputStr: String) {
 
 首先从文件中读取文法信息，文件的每一行代表一个产生式，读取结果如下图5.1：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image4.png" alt="image-04" style="zoom:67%;" />
+<img src="imgs/image4.png" alt="image-04" style="zoom:67%;" />
 
 > 图5.1 从文件读取原文法
 
 然后判断该文法是否存在直接左递归，若存在则自动消除左递归，得到新文法，如图5.2：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image5.png" alt="image-05" style="zoom:67%;" />
+<img src="imgs/image5.png" alt="image-05" style="zoom:67%;" />
 
 > 图5.2 判断文法是否存在左递归，存在则自动消除左递归后得到新文法
 
 程序的下一步是获取文法的非终结符和终结符，如图5.3：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image6.png" alt="image-06" style="zoom:67%;" />
+<img src="imgs/image6.png" alt="image-06" style="zoom:67%;" />
 
 > 图5.3 计算文法的终结符和非终结符模块
 
 接着计算每个非终结符的`FIRST`集和`FOLLOW`集，如图5.4：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image7.png" alt="image-07" style="zoom:67%;" />
+<img src="imgs/image7.png" alt="image-07" style="zoom:67%;" />
 
 > 图5.4 计算非终结符的FIRST集和FOLLOW集模块
 
 紧接着再构造该文发的预测分析表，如图5.5：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image8.png" alt="image-08" style="zoom:67%;" />
+<img src="imgs/image8.png" alt="image-08" style="zoom:67%;" />
 
 > 图5.5 构造文法的预测分析表模块
 
 最后根据输入串和构造的预测分析表，进行`LL1`分析，分析过程输出如图5.6：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image9.png" alt="image-09" style="zoom:67%;" />
+<img src="imgs/image9.png" alt="image-09" style="zoom:67%;" />
 
 > 图5.6 根据输入串和预测分析表进行`LL1`分析模块
 
@@ -699,31 +699,31 @@ L→L,id | id
 
 1. 对于算数表达式文法，这里用测试文法1进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image10.png" alt="image-10" style="zoom:67%;" />
+   <img src="imgs/image10.png" alt="image-10" style="zoom:67%;" />
 
    > 图6.1 测试模块一对测试文法1进行测试的结果图
 
 2. 对于二义文法，这里用测试文法2进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image11.png" alt="image-11" style="zoom:67%;" />
+   <img src="imgs/image11.png" alt="image-11" style="zoom:67%;" />
 
    > 图6.2 测试模块一对测试文法2进行测试的结果图
 
 3. 对于非二义文法，这里用测试文法3进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image12.png" alt="image-12" style="zoom:67%;" />
+   <img src="imgs/image12.png" alt="image-12" style="zoom:67%;" />
 
    > 图6.3 测试模块一对测试文法3进行测试的结果图
 
 4. 对于布尔表达式文法，这里用测试文法4进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image13.png" alt="image-13" style="zoom:67%;" />
+   <img src="imgs/image13.png" alt="image-13" style="zoom:67%;" />
 
    > 图6.4 测试模块一对测试文法4进行测试的结果图
 
 5. 对于定义文法，这里用测试文法5进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image14.png" alt="image-14" style="zoom:67%;" />
+   <img src="imgs/image14.png" alt="image-14" style="zoom:67%;" />
 
    > 图6.5 测试模块一对测试文法5进行测试的结果图
 
@@ -733,31 +733,31 @@ L→L,id | id
 
 1. 对于算数表达式文法，这里用测试文法1进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image15.png" alt="image-15" style="zoom:67%;" />
+   <img src="imgs/image15.png" alt="image-15" style="zoom:67%;" />
 
    > 图6.6 测试模块二对测试文法1进行测试的结果图
 
 2. 对于二义文法，这里用测试文法2进行测试，如下图所示
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image16.png" alt="image-16" style="zoom:67%;" />
+   <img src="imgs/image16.png" alt="image-16" style="zoom:67%;" />
 
    > 图6.7 测试模块二对测试文法2进行测试的结果图
 
 3. 对于非二义文法，这里用测试文法3进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image17.png" alt="image-17" style="zoom:67%;" />
+   <img src="imgs/image17.png" alt="image-17" style="zoom:67%;" />
 
    > 图6.8 测试模块二对测试文法3进行测试的结果图
 
 4. 对于布尔表达式文法，这里用测试文法4进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image18.png" alt="image-18" style="zoom:67%;" />
+   <img src="imgs/image18.png" alt="image-18" style="zoom:67%;" />
 
    > 图6.9 测试模块二对测试文法4进行测试的结果图
 
 5. 对于定义文法，这里用测试文法5进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image19.png" alt="image-19" style="zoom:67%;" />
+   <img src="imgs/image19.png" alt="image-19" style="zoom:67%;" />
 
    > 图6.10 测试模块二对测试文法5进行测试的结果图
 
@@ -767,31 +767,31 @@ L→L,id | id
 
 1. 对于算数表达式文法，这里根据测试文法1进行测试，结果如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image20.png" alt="image-20" style="zoom:67%;" />
+   <img src="imgs/image20.png" alt="image-20" style="zoom:67%;" />
 
    > 图6.11 测试模块三对测试文法1进行测试的结果图
 
 2. 对于二义文法，这里用测试文法2进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image21.png" alt="image-21" style="zoom:67%;" />
+   <img src="imgs/image21.png" alt="image-21" style="zoom:67%;" />
 
    > 图6.12 测试模块三对测试文法2进行测试的结果图
 
 3. 对于非二义文法，这里用测试文法3进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image22.png" alt="image-22" style="zoom:67%;" />
+   <img src="imgs/image22.png" alt="image-22" style="zoom:67%;" />
 
    >  图6.13 测试模块三对测试文法3进行测试的结果图
 
 4. 对于布尔表达式文法，这里用测试文法4进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image23.png" alt="image-23" style="zoom:67%;" />
+   <img src="imgs/image23.png" alt="image-23" style="zoom:67%;" />
 
    >  图6.14 测试模块三对测试文法4进行测试的结果图
 
 5. 对于定义文法，这里用测试文法5进行测试，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image24.png" alt="image-24" style="zoom:67%;" />
+   <img src="imgs/image24.png" alt="image-24" style="zoom:67%;" />
 
    > 图6.15 测试模块三对测试文法5进行测试的结果图
 
@@ -801,13 +801,13 @@ L→L,id | id
 
 1. 对于算数表达式文法，这里用测试文法1进行测试，根据输入串"`(3 + 2) * 8 - 6 / 2 + 1`"给出分析过程，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image25.png" alt="image-25" style="zoom:67%;" />
+   <img src="imgs/image25.png" alt="image-25" style="zoom:67%;" />
 
    >  图6.16 测试模块四对输入串"`(3 + 2) * 8 - 6 / 2 + 1`"的测试结果图
 
 2. 对于二义文法，这里用测试文法2进行测试，根据输入串"`no no not not`"给出分析过程，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image26.png" alt="image-26" style="zoom:67%;" />
+   <img src="imgs/image26.png" alt="image-26" style="zoom:67%;" />
 
    >  图6.17 测试模块四对输入串"no no not not"的测试结果图
 
@@ -815,7 +815,7 @@ L→L,id | id
 
 3. 对于非二义文法，这里用测试文法3进行测试，根据输入串"`no no not not`"给出分析过程，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image27.png" alt="image-27" style="zoom:67%;" />
+   <img src="imgs/image27.png" alt="image-27" style="zoom:67%;" />
 
    >  图6.18 测试模块四对输入串"`no no not not`"的测试结果图
 
@@ -823,7 +823,7 @@ L→L,id | id
 
 4. 对于布尔表达式文法，这里用测试文法4进行测试，根据输入串"`5<(6/4) and 7 - (2+1) < 3-1 (and not(12>13) or 3*5>2)`"给出分析过程，如下如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image28.png" alt="image-28" style="zoom:67%;" />
+   <img src="imgs/image28.png" alt="image-28" style="zoom:67%;" />
 
    >  图6.19 测试模块四对输入串"`5<(6/4) and 7-(2+1)<3-1(and not(12>13)or3*5>2)`"的测试结果图
 
@@ -831,7 +831,7 @@ L→L,id | id
 
 5. 对于定义文法，这里用测试文法5进行测试，根据输入串"`int id,id;`"给出如下分析过程，如下图所示：
 
-   <img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image29.png" alt="image-29" style="zoom:67%;" />
+   <img src="imgs/image29.png" alt="image-29" style="zoom:67%;" />
 
    >  图6.20 测试模块四对输入串"`int id,id;`"的测试结果图
 
@@ -839,13 +839,13 @@ L→L,id | id
 
 对于文法测试文法1，输入串`+3*-5`的错误恢复处理如下图所示：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image30.png" alt="image-30" style="zoom:67%;" />
+<img src="imgs/image30.png" alt="image-30" style="zoom:67%;" />
 
 > 图6.21 输入串`+3*-5`的错误恢复处理
 
 对于文法测试文法4，输入串"`5<(6/4) and 7 - (2+1) < 3-1 (and not(12>13) or 3*5>2)`"的错误恢复处理如下图所示：
 
-<img src="D:\Luke\Documents\IdeaProjects\LL1\imgs\image31.png" alt="image-31" style="zoom:67%;" />
+<img src="imgs/image31.png" alt="image-31" style="zoom:67%;" />
 
 > 图6.22 输入串"`5<(6/4) and 7 - (2+1) < 3-1 (and not(12>13) or 3*5>2)`"的错误恢复
 
